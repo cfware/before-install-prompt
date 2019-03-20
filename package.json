@@ -1,0 +1,61 @@
+{
+	"name": "@cfware/before-install-prompt",
+	"version": "0.1.0",
+	"description": "Basic module to handle the `beforeinstallprompt` event.",
+	"main": "before-install-prompt.js",
+	"scripts": {
+		"release": "standard-version --sign",
+		"test": "xo && nyc ava -v"
+	},
+	"engines": {
+		"node": ">=8"
+	},
+	"author": "Corey Farrell",
+	"license": "MIT",
+	"files": [
+		"before-install-prompt.js"
+	],
+	"keywords": [
+		"beforeinstallprompt",
+		"browser"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/cfware/before-install-prompt.git"
+	},
+	"bugs": {
+		"url": "https://github.com/cfware/before-install-prompt/issues"
+	},
+	"homepage": "https://github.com/cfware/before-install-prompt#readme",
+	"devDependencies": {
+		"@babel/plugin-transform-modules-commonjs": "^7.2.0",
+		"@babel/register": "^7.0.0",
+		"@cfware/eslint-config-browser": "^0.2.0",
+		"@istanbuljs/nyc-config-babel": "^2.0.1",
+		"ava": "^1.3.1",
+		"babel-plugin-istanbul": "^5.1.1",
+		"nyc": "^13.3.0",
+		"standard-version": "^5.0.2",
+		"xo": "^0.24.0"
+	},
+	"nyc": {
+		"all": true,
+		"check-coverage": true,
+		"per-file": true,
+		"lines": 100,
+		"statements": 100,
+		"functions": 100,
+		"branches": 100,
+		"extends": "@istanbuljs/nyc-config-babel"
+	},
+	"xo": {
+		"overrides": [
+			{
+				"files": [
+					"before-install-prompt.js"
+				],
+				"extends": "@cfware/eslint-config-browser"
+			}
+		]
+	}
+}
