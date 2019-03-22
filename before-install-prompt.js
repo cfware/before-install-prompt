@@ -1,3 +1,5 @@
+import runCallbacks from '@cfware/callback-array-once';
+
 let done, deferredPrompt; // eslint-disable-line one-var
 const notifyFns = [];
 
@@ -5,9 +7,7 @@ window.addEventListener('beforeinstallprompt', event => {
 	event.preventDefault();
 	deferredPrompt = event;
 	done = true;
-	notifyFns.forEach(fn => {
-		fn();
-	});
+	runCallbacks(notifyFns);
 });
 
 export const watch = fn => {
