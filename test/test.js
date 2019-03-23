@@ -1,10 +1,8 @@
 import test from 'ava';
+import delay from 'delay';
+
 import {dispatch, createEvent} from './helpers/init-fake-window';
 import {watch, showPrompt} from '..';
-
-function waitTick() {
-	return new Promise(resolve => setTimeout(resolve, 0));
-}
 
 test('lifecycle', async t => {
 	t.notThrows(showPrompt);
@@ -26,7 +24,7 @@ test('lifecycle', async t => {
 	t.is(event.defaultPrevented, 1);
 	t.is(event.prompted, 0);
 
-	await waitTick();
+	await delay(0);
 	t.is(watch2Called, 1);
 
 	t.notThrows(showPrompt);
@@ -39,6 +37,6 @@ test('lifecycle', async t => {
 		watch3Called++;
 	});
 
-	await waitTick();
+	await delay(0);
 	t.is(watch3Called, 0);
 });
