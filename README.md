@@ -19,23 +19,38 @@ npm i --save @cfware/before-install-prompt
 ## Usage
 
 ```js
-import {watch, showPrompt} from '@cfware/before-install-prompt';
+import beforeInstallPrompt from '@cfware/before-install-prompt';
 
-watch(() => {
-  console.log('Notification: showPrompt() can now be called');
-  showPrompt();
-});
+function readyToShowPrompt() {
+  /* This function should display a button on the page which will call
+   * beforeInstallPrompt.prompt(); when clicked.
+   */
+}
+
+if (beforeInstallPrompt.shouldListen) {
+  beforeInstallPrompt.addEventListener('ready', readyToShowPrompt);
+} else if (beforeInstallPrompt.canPrompt) {
+  readyToShowPrompt();
+}
 ```
 
-### watch(fn)
+### beforeInstallPrompt.shouldListen
 
-Register a function to be called when `showPrompt()` can be effective.  The
-function is called without any arguments.
+Readonly property is true if `beforeinstallprompt` event has not yet occurred.
 
-### showPrompt()
+### beforeInstallPrompt.promptShown
 
-Request that the browser show a prompt to install the application.  This
-function has no effect if `beforeinstallprompt` hasn't been dispatched yet.
+Readonly property is true when the prompt has been shown.
+
+### beforeInstallPrompt.canPrompt
+
+Readonly property is true when the `beforeinstallprompt` event has occurred but
+the prompt has not yet been shown.
+
+### beforeInstallPrompt.prompt()
+
+This function will show the install prompt if possible.  This function has no
+effect if `beforeinstallprompt` hasn't been dispatched yet.
 
 ## Running tests
 

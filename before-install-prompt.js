@@ -1,26 +1,33 @@
-import runCallbacks from '@cfware/callback-array-once';
+class BeforeInstallPrompt extends EventTarget {
+	constructor() {
+		super();
 
-let done, deferredPrompt; // eslint-disable-line one-var
-const notifyFns = [];
-
-window.addEventListener('beforeinstallprompt', event => {
-	event.preventDefault();
-	deferredPrompt = event;
-	done = true;
-	runCallbacks(notifyFns);
-});
-
-export const watch = fn => {
-	if (!done) {
-		notifyFns.push(fn);
-	} else if (deferredPrompt) {
-		setTimeout(fn, 0);
+		window.addEventListener('beforeinstallprompt', event => {
+			event.preventDefault();
+			this._deferredPrompt = event;
+			this.dispatchEvent(new Event('ready'));
+		});
 	}
-};
 
-export const showPrompt = () => {
-	if (deferredPrompt) {
-		deferredPrompt.prompt();
-		deferredPrompt = null;
+	get shouldListen() {
+		return !(this._promptShown || this._deferredPrompt);
 	}
-};
+
+	get promptShown() {
+		return !!this._promptShown; // eslint-disable-line no-implicit-coercion
+	}
+
+	get canPrompt() {
+		return !!this._deferredPrompt; // eslint-disable-line no-implicit-coercion
+	}
+
+	prompt() {
+		if (this._deferredPrompt) {
+			this._promptShown = true;
+			this._deferredPrompt.prompt();
+			this._deferredPrompt = null;
+		}
+	}
+}
+
+export default new BeforeInstallPrompt();
