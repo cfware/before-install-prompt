@@ -1,6 +1,6 @@
 import test from 'ava';
 
-import {window, Event} from './helpers/init-fake-window';
+import {window, Event} from './_init-fake-window';
 import beforeInstallPrompt from '..';
 
 test('lifecycle', t => {
