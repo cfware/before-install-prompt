@@ -12,9 +12,6 @@
 	},
 	"author": "Corey Farrell",
 	"license": "MIT",
-	"files": [
-		"before-install-prompt.js"
-	],
 	"keywords": [
 		"beforeinstallprompt",
 		"browser"
