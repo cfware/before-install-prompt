@@ -1,7 +1,7 @@
 import test from 'ava';
 
-import {window, Event} from './_init-fake-window';
-import beforeInstallPrompt from '..';
+import {window, Event} from './_init-fake-window.js';
+import beforeInstallPrompt from '../before-install-prompt.js';
 
 test('lifecycle', t => {
 	t.is(typeof beforeInstallPrompt, 'object');

@@ -13,12 +13,11 @@ class EventTarget {
 }
 
 export class Event {
+	defaultPrevented = 0;
+	prompted = 0;
+
 	constructor(type) {
-		Object.assign(this, {
-			type,
-			defaultPrevented: 0,
-			prompted: 0
-		});
+		this.type = type;
 	}
 
 	preventDefault() {
@@ -30,7 +29,6 @@ export class Event {
 	}
 }
 
-const global = new Function('return this')(); // eslint-disable-line no-new-func
 Object.assign(global, {
 	window: new EventTarget(),
 	EventTarget,

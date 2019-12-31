@@ -8,7 +8,7 @@
 		"test": "xo && nyc ava -v"
 	},
 	"engines": {
-		"node": ">=8"
+		"node": ">=12"
 	},
 	"author": "Corey Farrell",
 	"license": "MIT",
@@ -26,14 +26,19 @@
 	"homepage": "https://github.com/cfware/before-install-prompt#readme",
 	"devDependencies": {
 		"@cfware/eslint-config-browser": "^0.4.0",
-		"@cfware/nyc": "^0.5.0",
+		"@cfware/eslint-config-node": "^0.1.1",
+		"@cfware/nyc": "^0.6.0",
 		"ava": "^2.0.0",
 		"esm": "^3.2.25",
-		"nyc": "^14.1.1",
+		"nyc": "^15.0.0",
 		"standard-version": "^7.0.0",
 		"xo": "^0.25.3"
 	},
 	"xo": {
+		"extends": "@cfware/eslint-config-node",
+		"rules": {
+			"import/order": 0
+		},
 		"overrides": [
 			{
 				"files": [

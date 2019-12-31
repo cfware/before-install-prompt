@@ -10,7 +10,7 @@ Basic module to handle the `beforeinstallprompt` event.
 
 ### Install @cfware/before-install-prompt
 
-Testing this module requires node.js 8 or above.
+Testing this module requires node.js 12 or above.
 
 ```sh
 npm i --save @cfware/before-install-prompt
