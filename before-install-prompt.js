@@ -14,11 +14,11 @@ class BeforeInstallPrompt extends EventTarget {
 	}
 
 	get promptShown() {
-		return !!this._promptShown; // eslint-disable-line no-implicit-coercion
+		return !!this._promptShown;
 	}
 
 	get canPrompt() {
-		return !!this._deferredPrompt; // eslint-disable-line no-implicit-coercion
+		return !!this._deferredPrompt;
 	}
 
 	prompt() {

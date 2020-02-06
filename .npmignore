@@ -1,8 +1,7 @@
 *.tgz
 node_modules
 coverage
-.nyc_output
-nyc.config.js
 package
+.eslintrc.json
 .travis.yml
 test

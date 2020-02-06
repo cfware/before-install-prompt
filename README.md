@@ -10,7 +10,7 @@ Basic module to handle the `beforeinstallprompt` event.
 
 ### Install @cfware/before-install-prompt
 
-Testing this module requires node.js 12 or above.
+Testing this module requires node.js 13.7.0 or above.
 
 ```sh
 npm i --save @cfware/before-install-prompt
@@ -51,15 +51,6 @@ the prompt has not yet been shown.
 
 This function will show the install prompt if possible.  This function has no
 effect if `beforeinstallprompt` hasn't been dispatched yet.
-
-## Running tests
-
-Tests are provided by xo and ava.
-
-```sh
-npm install
-npm test
-```
 
 [npm-image]: https://img.shields.io/npm/v/@cfware/before-install-prompt.svg
 [npm-url]: https://npmjs.org/package/@cfware/before-install-prompt

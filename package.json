@@ -3,12 +3,14 @@
 	"version": "0.2.1",
 	"description": "Basic module to handle the `beforeinstallprompt` event.",
 	"main": "before-install-prompt.js",
+	"type": "module",
 	"scripts": {
 		"release": "standard-version --sign",
-		"test": "xo && nyc ava -v"
+		"pretest": "cfware-lint .",
+		"test": "c8 node test/test.js"
 	},
 	"engines": {
-		"node": ">=12"
+		"node": ">=13.7.0"
 	},
 	"author": "Corey Farrell",
 	"license": "MIT",
@@ -25,27 +27,9 @@
 	},
 	"homepage": "https://github.com/cfware/before-install-prompt#readme",
 	"devDependencies": {
-		"@cfware/eslint-config-browser": "^0.4.0",
-		"@cfware/eslint-config-node": "^0.1.1",
-		"@cfware/nyc": "^0.6.0",
-		"ava": "^2.0.0",
-		"esm": "^3.2.25",
-		"nyc": "^15.0.0",
-		"standard-version": "^7.0.0",
-		"xo": "^0.25.3"
-	},
-	"xo": {
-		"extends": "@cfware/eslint-config-node",
-		"rules": {
-			"import/order": 0
-		},
-		"overrides": [
-			{
-				"files": [
-					"before-install-prompt.js"
-				],
-				"extends": "@cfware/eslint-config-browser"
-			}
-		]
+		"@cfware/lint": "^1.1.1",
+		"c8": "^7.0.1",
+		"libtap": "^0.2.0",
+		"standard-version": "^7.0.0"
 	}
 }

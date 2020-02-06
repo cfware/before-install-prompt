@@ -3,8 +3,8 @@ class EventTarget {
 		this.listener = null;
 	}
 
-	addEventListener(type, cb) {
-		this.listener = cb;
+	addEventListener(type, callback) {
+		this.listener = callback;
 	}
 
 	dispatchEvent(event) {

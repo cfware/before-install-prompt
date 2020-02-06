@@ -1,13 +1,14 @@
-import test from 'ava';
+import t from 'libtap';
 
 import {window, Event} from './_init-fake-window.js';
+// eslint-disable-next-line import/order
 import beforeInstallPrompt from '../before-install-prompt.js';
 
-test('lifecycle', t => {
-	t.is(typeof beforeInstallPrompt, 'object');
-	t.false(beforeInstallPrompt.canPrompt);
-	t.false(beforeInstallPrompt.promptShown);
-	t.true(beforeInstallPrompt.shouldListen);
+t.test('lifecycle', async t => {
+	t.type(beforeInstallPrompt, 'object');
+	t.equal(beforeInstallPrompt.canPrompt, false);
+	t.equal(beforeInstallPrompt.promptShown, false);
+	t.equal(beforeInstallPrompt.shouldListen, true);
 
 	let ready = false;
 	beforeInstallPrompt.addEventListener('ready', () => {
@@ -15,23 +16,23 @@ test('lifecycle', t => {
 	});
 
 	beforeInstallPrompt.prompt();
-	t.false(beforeInstallPrompt.canPrompt);
-	t.false(beforeInstallPrompt.promptShown);
-	t.true(beforeInstallPrompt.shouldListen);
-	t.false(ready);
+	t.equal(beforeInstallPrompt.canPrompt, false);
+	t.equal(beforeInstallPrompt.promptShown, false);
+	t.equal(beforeInstallPrompt.shouldListen, true);
+	t.equal(ready, false);
 
 	const eventBeforeInstall = new Event('beforeinstallprompt');
 	window.dispatchEvent(eventBeforeInstall);
 
-	t.true(ready);
-	t.is(eventBeforeInstall.defaultPrevented, 1);
-	t.is(eventBeforeInstall.prompted, 0);
-	t.true(beforeInstallPrompt.canPrompt);
-	t.false(beforeInstallPrompt.promptShown);
-	t.false(beforeInstallPrompt.shouldListen);
+	t.equal(ready, true);
+	t.equal(eventBeforeInstall.defaultPrevented, 1);
+	t.equal(eventBeforeInstall.prompted, 0);
+	t.equal(beforeInstallPrompt.canPrompt, true);
+	t.equal(beforeInstallPrompt.promptShown, false);
+	t.equal(beforeInstallPrompt.shouldListen, false);
 
 	beforeInstallPrompt.prompt();
-	t.false(beforeInstallPrompt.canPrompt);
-	t.true(beforeInstallPrompt.promptShown);
-	t.is(eventBeforeInstall.prompted, 1);
+	t.equal(beforeInstallPrompt.canPrompt, false);
+	t.equal(beforeInstallPrompt.promptShown, true);
+	t.equal(eventBeforeInstall.prompted, 1);
 });
