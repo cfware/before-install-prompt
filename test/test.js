@@ -1,7 +1,6 @@
 import t from 'libtap';
 
 import {window, Event} from './_init-fake-window.js';
-// eslint-disable-next-line import/order
 import beforeInstallPrompt from '../before-install-prompt.js';
 
 t.test('lifecycle', async t => {
