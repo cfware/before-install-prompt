@@ -1,6 +1,6 @@
 # @cfware/before-install-prompt
 
-[![Travis CI][travis-image]][travis-url]
+![Tests][tests-status]
 [![Greenkeeper badge][gk-image]](https://greenkeeper.io/)
 [![NPM Version][npm-image]][npm-url]
 [![NPM Downloads][downloads-image]][downloads-url]
@@ -54,8 +54,7 @@ effect if `beforeinstallprompt` hasn't been dispatched yet.
 
 [npm-image]: https://img.shields.io/npm/v/@cfware/before-install-prompt.svg
 [npm-url]: https://npmjs.org/package/@cfware/before-install-prompt
-[travis-image]: https://travis-ci.org/cfware/before-install-prompt.svg?branch=master
-[travis-url]: https://travis-ci.org/cfware/before-install-prompt
+[tests-status]: https://github.com/cfware/before-install-prompt/workflows/Tests/badge.svg
 [gk-image]: https://badges.greenkeeper.io/cfware/before-install-prompt.svg
 [downloads-image]: https://img.shields.io/npm/dm/@cfware/before-install-prompt.svg
 [downloads-url]: https://npmjs.org/package/@cfware/before-install-prompt
