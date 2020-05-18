@@ -1,20 +1,6 @@
-# @cfware/before-install-prompt
-
-![Tests][tests-status]
-[![Greenkeeper badge][gk-image]](https://greenkeeper.io/)
-[![NPM Version][npm-image]][npm-url]
-[![NPM Downloads][downloads-image]][downloads-url]
-[![MIT][license-image]](LICENSE)
+# @cfware/before-install-prompt [![NPM Version][npm-image]][npm-url]
 
 Basic module to handle the `beforeinstallprompt` event.
-
-### Install @cfware/before-install-prompt
-
-Testing this module requires node.js 13.7.0 or above.
-
-```sh
-npm i --save @cfware/before-install-prompt
-```
 
 ## Usage
 
@@ -54,8 +40,3 @@ effect if `beforeinstallprompt` hasn't been dispatched yet.
 
 [npm-image]: https://img.shields.io/npm/v/@cfware/before-install-prompt.svg
 [npm-url]: https://npmjs.org/package/@cfware/before-install-prompt
-[tests-status]: https://github.com/cfware/before-install-prompt/workflows/Tests/badge.svg
-[gk-image]: https://badges.greenkeeper.io/cfware/before-install-prompt.svg
-[downloads-image]: https://img.shields.io/npm/dm/@cfware/before-install-prompt.svg
-[downloads-url]: https://npmjs.org/package/@cfware/before-install-prompt
-[license-image]: https://img.shields.io/npm/l/@cfware/before-install-prompt.svg
