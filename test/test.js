@@ -1,7 +1,7 @@
 import t from 'libtap';
 
 import {window, Event} from './_init-fake-window.js';
-import beforeInstallPrompt from '../before-install-prompt.js';
+import beforeInstallPrompt from '@cfware/before-install-prompt';
 
 t.test('lifecycle', async t => {
 	t.type(beforeInstallPrompt, 'object');
