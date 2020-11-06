@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](https://github.com/cfware/before-install-prompt/compare/v0.2.1...v0.3.0) (2020-11-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* The API is rewritten to support smaller output size
+
+### Features
+
+* Reduce size ([5806d7a](https://github.com/cfware/before-install-prompt/commit/5806d7a803491e2c5fd4cf6bcb9ed471df7e864f))
+
 ### [0.2.1](https://github.com/cfware/before-install-prompt/compare/v0.2.0...v0.2.1) (2019-06-04)
 
 
