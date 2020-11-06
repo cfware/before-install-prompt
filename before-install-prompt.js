@@ -1,33 +1,26 @@
-class BeforeInstallPrompt extends EventTarget {
-	constructor() {
-		super();
+import callbackArrayOnce from '@cfware/callback-array-once';
+import {preventDefault} from '@cfware/event-blocker';
 
-		window.addEventListener('beforeinstallprompt', event => {
-			event.preventDefault();
-			this._deferredPrompt = event;
-			this.dispatchEvent(new Event('ready'));
-		});
+let deferredPrompt;
+const callbacks = [];
+
+window.addEventListener('beforeinstallprompt', event => {
+	preventDefault(event);
+	deferredPrompt = event;
+	callbackArrayOnce(callbacks);
+});
+
+export const promptInstallWait = callback => {
+	if (deferredPrompt) {
+		callback();
+	} else if (deferredPrompt !== false) {
+		callbacks.push(callback);
 	}
+};
 
-	get shouldListen() {
-		return !(this._promptShown || this._deferredPrompt);
+export const promptInstallShow = () => {
+	if (deferredPrompt) {
+		deferredPrompt.prompt();
+		deferredPrompt = false;
 	}
-
-	get promptShown() {
-		return !!this._promptShown;
-	}
-
-	get canPrompt() {
-		return !!this._deferredPrompt;
-	}
-
-	prompt() {
-		if (this._deferredPrompt) {
-			this._promptShown = true;
-			this._deferredPrompt.prompt();
-			this._deferredPrompt = null;
-		}
-	}
-}
-
-export default new BeforeInstallPrompt();
+};

@@ -7,9 +7,9 @@
 	"type": "module",
 	"scripts": {
 		"pretest": "cfware-lint .",
-		"tests-only": "nyc -s --no-check-coverage node --experimental-loader @istanbuljs/esm-loader-hook test/test.js",
+		"tests-only": "nyc -s node --experimental-loader @istanbuljs/esm-loader-hook test/test.js",
 		"test": "npm run -s tests-only",
-		"posttest": "nyc report"
+		"posttest": "nyc report --check-coverage"
 	},
 	"engines": {
 		"node": ">=14.0.0"
@@ -28,6 +28,10 @@
 		"url": "https://github.com/cfware/before-install-prompt/issues"
 	},
 	"homepage": "https://github.com/cfware/before-install-prompt#readme",
+	"dependencies": {
+		"@cfware/callback-array-once": "^1.0.3",
+		"@cfware/event-blocker": "^0.1.0"
+	},
 	"devDependencies": {
 		"@cfware/lint": "^2.0.2",
 		"@cfware/nyc": "^0.7.0",
