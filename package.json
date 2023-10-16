@@ -1,6 +1,6 @@
 {
     "name": "@cfware/before-install-prompt",
-    "version": "0.3.0",
+    "version": "1.0.0",
     "description": "Basic module to handle the `beforeinstallprompt` event.",
     "main": "before-install-prompt.js",
     "exports": "./before-install-prompt.js",
