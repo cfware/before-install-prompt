@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0](https://github.com/cfware/before-install-prompt/compare/v0.3.0...v1.0.0) (2023-10-16)
+
+
+### ⚠ BREAKING CHANGES
+
+* Update dependencies
+
+### Features
+
+* Update dependencies ([4e95092](https://github.com/cfware/before-install-prompt/commit/4e950921b1b191a1b87428f68e36135a44e4b871))
+
 ## [0.3.0](https://github.com/cfware/before-install-prompt/compare/v0.2.1...v0.3.0) (2020-11-06)
 
 
