@@ -8,7 +8,7 @@ t.type(promptInstallShow, 'function');
 
 let ready = false;
 promptInstallWait(() => {
-	ready = true;
+    ready = true;
 });
 
 promptInstallShow();
@@ -27,14 +27,14 @@ ready = false;
 
 let unexpected = false;
 promptInstallWait(() => {
-	unexpected = true;
+    unexpected = true;
 });
 window.dispatchEvent(new Event('beforeinstallprompt'));
 t.equal(ready, false);
 
 let immediate = false;
 promptInstallWait(() => {
-	immediate = true;
+    immediate = true;
 });
 t.equal(unexpected, false);
 t.equal(immediate, true);
